@@ -36,26 +36,22 @@ h2{
     margin-bottom:15px;
 }
 
-/* 🎁 Gift */
+/* 🎁 Gift image (closed) */
 #gbox{
     width:180px;
     max-width:100%;
     cursor:pointer;
-    animation: shake 1.5s infinite;
-    transition:transform 0.3s;
+    animation: softMove 2.5s ease-in-out infinite;
 }
 
-/* Shake animation for closed box */
-@keyframes shake {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(-6px); }
-    40% { transform: translateX(6px); }
-    60% { transform: translateX(-6px); }
-    80% { transform: translateX(6px); }
-    100% { transform: translateX(0); }
+/* Lite movement animation */
+@keyframes softMove {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
 }
 
-/* Opened gift */
+/* After opening */
 #gbox.opened{
     width:55px;
     animation:none;
@@ -83,10 +79,12 @@ p{
 <body>
 
 <div class="card">
-    <h2>🎁 Tap the Gift 🎁</h2>
+    <h2>🎁 click the Gift image 🎁</h2>
 
+    <!-- Closed gift image -->
     <img id="gbox" src="gift.png" alt="Gift" onclick="openGift()">
 
+    <!-- Surprise -->
     <div id="surprise" class="hidden">
         <p>
             You are one of the most precious people in my life 🤍<br>
@@ -105,8 +103,8 @@ p{
 function openGift(){
     const gbox = document.getElementById("gbox");
 
-    gbox.style.animation = "none";   // stop shake
-    gbox.src = "giftopen.jpg";       // open gift
+    gbox.style.animation = "none";   // stop lite movement
+    gbox.src = "giftopen.png";       // open gift image
     gbox.classList.add("opened");
 
     document.getElementById("surprise").classList.remove("hidden");
@@ -118,5 +116,3 @@ function openGift(){
 
 </body>
 </html>
-
-
