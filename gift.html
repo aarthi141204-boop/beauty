@@ -36,7 +36,7 @@ h2{
     margin-bottom:15px;
 }
 
-/* 🎁 Gift image (closed) */
+/* 🎁 Closed gift */
 #gbox{
     width:180px;
     max-width:100%;
@@ -44,14 +44,14 @@ h2{
     animation: softMove 2.5s ease-in-out infinite;
 }
 
-/* Lite movement animation */
+/* Lite movement */
 @keyframes softMove {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(-6px); }
     100% { transform: translateY(0); }
 }
 
-/* After opening */
+/* After open */
 #gbox.opened{
     width:55px;
     animation:none;
@@ -79,12 +79,12 @@ p{
 <body>
 
 <div class="card">
-    <h2>Click the Gift🎁</h2>
+    <h2>🎁 Click the Gift 🎁</h2>
 
     <!-- Closed gift image -->
     <img id="gbox" src="gift.png" alt="Gift" onclick="openGift()">
 
-    <!-- Surprise -->
+    <!-- Surprise content -->
     <div id="surprise" class="hidden">
         <p>
             You are one of the most precious people in my life 🤍<br>
@@ -103,12 +103,19 @@ p{
 function openGift(){
     const gbox = document.getElementById("gbox");
 
-    gbox.style.animation = "none";   // stop lite movement
-    gbox.src = "giftopen.png";       // open gift image
+    // stop movement
+    gbox.style.animation = "none";
+
+    // change to opened gift image
+    gbox.src = "giftopen.png";
+
+    // shrink size
     gbox.classList.add("opened");
 
+    // show message
     document.getElementById("surprise").classList.remove("hidden");
 
+    // play song
     const audio = document.getElementById("song");
     audio.play().catch(()=>{});
 }
@@ -116,4 +123,3 @@ function openGift(){
 
 </body>
 </html>
-
