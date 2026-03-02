@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Small Surprise 💖</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffccb3,#ffe5d9);
+    font-family:Segoe UI, sans-serif;
+}
+
+.card{
+    background:#fff6f0;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    max-width:360px;
+    width:100%;
+}
+
+#gbox{
+    width:200px;
+    cursor:pointer;
+    transition:transform 0.3s;
+}
+
+#gbox.opened{
+    width: 50px;              /* open aana apram innum kutti */
+}
+#gbox:hover{
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+}
+
+.photo{
+    width:100%;
+    border-radius:20px;
+    margin-top:15px;
+}
+
+p{
+    color:#555;
+    font-size:15px;
+    line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🎁 Click the Gift 🎁</h2>
+
+    <!-- Gift Image -->
+    <img id="gbox" src="gift.png" alt="Gift" onclick="openGift()">
+
+    <!-- Surprise Content -->
+    <div id="surprise" class="hidden">
+        <p>
+            You are one of the most precious people in my life 🤍<br>
+            No matter what, I’ll always be there for you always 💖
+        </p>
+
+        <img src="C:\Users\Aarthi\Downloads\beaut1.jpg" class="photo" alt="Memory">
+
+        <audio id="song" controls loop style="margin-top:15px; width:100%;">
+    <source src="C:\Users\Aarthi\Downloads\song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+    </div>
+</div>
+
+<script>
+function openGift(){
+     const gbox = document.getElementById("gbox");
+
+    gbox.src = "giftopen.jpg";     // open image
+    gbox.classList.add("opened");   // size kammi
+
+    document.getElementById("surprise").classList.remove("hidden");
+
+    const audio = document.getElementById("song");
+    audio.play().catch(() => {
+        console.log("User interaction needed");
+    });
+}
+</script>
+
+</body>
+</html>
