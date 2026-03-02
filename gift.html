@@ -81,10 +81,10 @@ p{
 <div class="card">
     <h2>🎁 Click the Gift 🎁</h2>
 
-    <!-- Closed gift image -->
+    <!-- Closed gift -->
     <img id="gbox" src="gift.png" alt="Gift" onclick="openGift()">
 
-    <!-- Surprise content -->
+    <!-- Surprise -->
     <div id="surprise" class="hidden">
         <p>
             You are one of the most precious people in my life 🤍<br>
@@ -103,19 +103,12 @@ p{
 function openGift(){
     const gbox = document.getElementById("gbox");
 
-    // stop movement
-    gbox.style.animation = "none";
-
-    // change to opened gift image
-    gbox.src = "giftopen.jpg";
-
-    // shrink size
+    gbox.style.animation = "none";   // stop movement
+    gbox.src = "giftopen.jpg";       // ✅ opened image (JPG)
     gbox.classList.add("opened");
 
-    // show message
     document.getElementById("surprise").classList.remove("hidden");
 
-    // play song
     const audio = document.getElementById("song");
     audio.play().catch(()=>{});
 }
@@ -123,4 +116,3 @@ function openGift(){
 
 </body>
 </html>
-
